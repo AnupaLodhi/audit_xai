@@ -78,7 +78,7 @@ if uploaded_file:
         col3.metric("Low Risk", len(df[df['risk'] == "🟢 Low Risk"]))
 
         st.subheader("Audit Results")
-        st.dataframe(df[['transaction_id', 'risk', 'anomaly_score']].style.map((
+        st.dataframe(df[['transaction_id', 'risk', 'anomaly_score']].style.map(
             lambda v: 'color: red' if 'High' in str(v) else 'color: green',
             subset=['risk']
         ))
