@@ -1,5 +1,5 @@
 🏦 Explainable AI-Based Anomaly Detection for Internal Audit
-📌 Overview
+  Overview
 
 This project demonstrates an Explainable Artificial Intelligence (XAI) approach to detect unusual banking transactions for internal audit purposes. The system analyzes transaction data using unsupervised machine learning and provides clear explanations for each flagged transaction, helping auditors understand why a transaction is considered risky.
 
