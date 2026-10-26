@@ -1,78 +1,87 @@
-🏦 Explainable AI-Based Anomaly Detection for Internal Audit
-  Overview
+# 🏦 Explainable AI-Based Anomaly Detection for Internal Audit
 
-This project demonstrates an Explainable Artificial Intelligence (XAI) approach to detect unusual banking transactions for internal audit purposes. The system analyzes transaction data using unsupervised machine learning and provides clear explanations for each flagged transaction, helping auditors understand why a transaction is considered risky.
+**Live Demo:** https://auditxai-r6kevqidzvvy2zkutfsnvq.streamlit.app/
 
-🎯 Objectives
+## Overview
 
-Detect abnormal transaction behavior without labeled fraud data
+This academic research prototype helps internal auditors identify unusual banking transactions using unsupervised machine learning. It analyzes uploaded transaction data, calculates anomaly scores, and provides straightforward, rule-based indicators to help reviewers inspect potentially suspicious activity.
 
-Assign risk levels to transactions for audit prioritization
+> **Note:** An anomaly is not proof of fraud. The current transaction explanations are rule-based indicators, not SHAP or model-derived feature attributions.
 
-Provide transparent and explainable AI results
+## 🎯 Objectives
 
-Support internal auditors in decision-making
+- Detect unusual transaction behavior without requiring labeled fraud data.
+- Assign risk labels to help prioritize transaction reviews.
+- Display anomaly scores and understandable transaction indicators.
+- Support human auditors in reviewing transaction activity.
 
-🛠 Technology Stack
+## 🛠 Technology Stack
 
-Python
+- Python
+- Streamlit
+- Pandas and NumPy
+- Scikit-learn (Isolation Forest and StandardScaler)
 
-Streamlit
+## ⚙️ Features
 
-Pandas
+- Upload banking transaction data in CSV format.
+- Preview uploaded transactions.
+- Scale numerical features and run Isolation Forest.
+- View anomaly scores and High Risk / Low Risk labels.
+- Filter high-risk transactions.
+- Select a transaction to see rule-based indicators for high amount, unusual hour, frequency, and location change.
+- Download audit results as CSV.
 
-Scikit-learn
+## 🚀 Try the Live Application
 
-⚙️ Features
+**[Open the Streamlit Dashboard](https://auditxai-r6kevqidzvvy2zkutfsnvq.streamlit.app/)**
 
-Upload transaction data in CSV format
+Download the sample CSV from the app, upload it, and explore the results.
 
-Unsupervised anomaly detection using Isolation Forest
+## 📂 Input Format (CSV)
 
-Risk-based transaction classification
+The uploaded CSV must include these columns:
 
-Explainable outputs for each flagged transaction
+```csv
+transaction_id,amount,hour,frequency,location_change
+TXN001,15000,14,3,0
+TXN002,85000,2,15,1
+TXN003,3000,10,2,0
+```
 
-Simple and interactive GUI
+## ▶️ Run Locally
 
-📂 Input Format (CSV)
+Clone the repository:
 
-The dataset should contain the following columns:
+```bash
+git clone https://github.com/AnupaLodhi/audit_xai.git
+cd audit_xai
+```
 
-transaction_id
+Install dependencies:
 
-amount
+```bash
+pip install -r requirements.txt
+```
 
-hour
+Launch the dashboard:
 
-frequency
-
-location_change
-
-▶️ How to Run the Project
-
-Install required libraries:
-
-pip install streamlit pandas scikit-learn
-
-
-Run the application:
-
+```bash
 streamlit run app.py
+```
 
+## 📊 Output
 
-Open the browser and upload a CSV file to view results.
+- Transaction summary and audit results table
+- Anomaly score for each transaction
+- High Risk / Low Risk classification
+- Rule-based transaction review indicators
+- Downloadable results CSV
 
-📊 Output
+## 🎓 Academic Use and Limitations
 
-List of suspicious transactions
+Developed as an academic research prototype exploring machine-learning-assisted internal audit in banking and finance. The current app fits its model on each uploaded dataset and uses a fixed threshold to assign risk labels. It has not been validated as a production fraud detection system or demonstrated regulatory compliance. Future work may include model-faithful explanations such as SHAP, independent evaluation on labeled data, and improved risk calibration.
 
-Risk level (Low / High)
+## 📄 License
 
-Anomaly score
-
-Explanation of why a transaction was flagged
-
-🎓 Academic Use
-
-This project is developed as an academic major project and research prototype for demonstrating the application of Explainable AI in banking and finance internal audit systems.
+See [LICENSE](LICENSE).
